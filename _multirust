@@ -1,3 +1,5 @@
+#compdef multirust
+
 local -a _multirust_commands
 _multirust_commands=(
     "default:Set the default toolchain"
@@ -15,5 +17,9 @@ _multirust_commands=(
     "help:Show help for this command or subcommands"
 )
 
+_arguments \
+  '(--version)--version[version information]' \
+  '*:: :->subcmds' && return 0
+
 _describe -t commands "multirust subcommand" _multirust_commands
-return 0
+return
